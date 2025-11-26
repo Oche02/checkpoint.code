@@ -1,6 +1,4 @@
-package main
-
-import "fmt"
+package piscine
 
 func CamelToSnakeCase(s string) string {
 	if s == "" {
@@ -33,13 +31,4 @@ func CamelToSnakeCase(s string) string {
 		result += string(r)
 	}
 	return result
-}
-
-func main() {
-	fmt.Println(CamelToSnakeCase("HelloWorld"))
-	fmt.Println(CamelToSnakeCase("helloWorld"))
-	fmt.Println(CamelToSnakeCase("camelCase"))
-	fmt.Println(CamelToSnakeCase("CAMELtoSnackCASE"))
-	fmt.Println(CamelToSnakeCase("camelToSnakeCase"))
-	fmt.Println(CamelToSnakeCase("hey2"))
 }
