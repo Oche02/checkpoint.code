@@ -1,0 +1,28 @@
+package main
+
+import "fmt"
+
+func FishAndChips(n int) string {
+	if n < 0 {
+		return "error: number is negative"
+	}
+	div2 := n%2 == 0
+	div3 := n%3 == 0
+
+	if div2 && div3 {
+		return "fish and chips"
+	}
+	if div3 {
+		return "chips"
+	}
+	if div2 {
+		return "fish"
+	}
+	return "error: non divisable"
+}
+
+func main() {
+	fmt.Println(FishAndChips(4))
+	fmt.Println(FishAndChips(9))
+	fmt.Println(FishAndChips(6))
+}
