@@ -1,6 +1,4 @@
-package main
-
-import "fmt"
+package piscine
 
 func CheckNumber(arg string) bool {
 	for _, r := range arg {
@@ -9,9 +7,4 @@ func CheckNumber(arg string) bool {
 		}
 	}
 	return false
-}
-
-func main() {
-	fmt.Println(CheckNumber("Hello"))
-	fmt.Println(CheckNumber("Hello1"))
 }
