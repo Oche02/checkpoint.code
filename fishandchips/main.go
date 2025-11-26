@@ -1,6 +1,4 @@
-package main
-
-import "fmt"
+package piscine
 
 func FishAndChips(n int) string {
 	if n < 0 {
@@ -19,10 +17,4 @@ func FishAndChips(n int) string {
 		return "fish"
 	}
 	return "error: non divisable"
-}
-
-func main() {
-	fmt.Println(FishAndChips(4))
-	fmt.Println(FishAndChips(9))
-	fmt.Println(FishAndChips(6))
 }
