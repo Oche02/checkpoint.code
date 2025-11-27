@@ -25,7 +25,7 @@ func CamelToSnakeCase(s string) string {
 	for i, r := range s {
 		if r >= 'A' && r <= 'Z' {
 			if i != 0 {
-				result += "-"
+				result += "_"
 			}
 		}
 		result += string(r)
