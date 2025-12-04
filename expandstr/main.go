@@ -1,8 +1,8 @@
 package main
 
 import (
-	"fmt"
 	"os"
+	"github.com/01-edu/z01"
 )
 
 func main() {
@@ -10,31 +10,37 @@ func main() {
 		return
 	}
 
-	s := os.Args[1]
-	words := []string{}
-	i := 0
+	input := os.Args[1]
+	var words []string
+	word := ""
 
-	for i < len(s) {
-		for i < len(s) && (s[i] == ' ' || s[i] == '\t') {
-			i++
+	for _, r := range input {
+		if r != ' ' && r != '\t' { 
+			word += string(r)
+		} else {
+			if word != "" {
+				words = append(words, word)
+				word = ""
+			}
 		}
-		start := i
-		for i < len(s) && s[i] > ' ' {
-			i++
-		}
-		if start < i {
-			words = append(words, s[start:i])
-		}
+	}
+	if word != "" {
+		words = append(words, word)
 	}
 
 	if len(words) == 0 {
 		return
 	}
 
-	out := words[0]
-	for _, w := range words[1:] {
-		out += "   " + w
+	for i, w := range words {
+		if i > 0 {
+			z01.PrintRune(' ')
+			z01.PrintRune(' ')
+			z01.PrintRune(' ')
+		}
+		for _, r := range w {
+			z01.PrintRune(r)
+		}
 	}
-
-	fmt.Println(out)
+	z01.PrintRune('\n')
 }
