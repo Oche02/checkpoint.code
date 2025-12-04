@@ -1,15 +1,17 @@
 package piscine
 
 func RepeatAlpha(s string) string {
-	result := ""
+	out := ""
 	for _, r := range s {
-		repeat := 1
+		n := 1
 		if r >= 'a' && r <= 'z' {
-			repeat = int(r-'a') + 1
+			n = int(r-'a') + 1
+		} else if r >= 'A' && r <= 'Z' {
+			n = int(r-'A') + 1
 		}
-		for i := 0; i < repeat; i++ {
-			result += string(r)
+		for i := 0; i < n; i++ {
+			out += string(r)
 		}
 	}
-	return result
+	return out
 }
