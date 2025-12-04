@@ -9,36 +9,31 @@ func main() {
 	if len(os.Args) != 2 {
 		return
 	}
+	s := os.Args[1]
+	w, words := "", []string{}
 
-	input := os.Args[1]
-	var words []string
-	word := ""
-
-	for _, r := range input {
-		if r != ' ' && r != '\t' { 
-			word += string(r)
-		} else {
-			if word != "" {
-				words = append(words, word)
-				word = ""
-			}
+	for _, r := range s {
+		if r > ' ' {
+			w += string(r)
+		} else if w != "" {
+			words = append(words, w)
+			w = ""
 		}
 	}
-	if word != "" {
-		words = append(words, word)
+	if w != "" {
+		words = append(words, w)
 	}
-
 	if len(words) == 0 {
 		return
 	}
 
-	for i, w := range words {
+	for i, word := range words {
 		if i > 0 {
 			z01.PrintRune(' ')
 			z01.PrintRune(' ')
 			z01.PrintRune(' ')
 		}
-		for _, r := range w {
+		for _, r := range word {
 			z01.PrintRune(r)
 		}
 	}
